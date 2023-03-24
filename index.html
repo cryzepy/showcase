@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>Belajar SVG</title>
+
+	<style>
+
+		* {
+			margin: 0;
+			padding: 0
+		}
+
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh
+		}
+
+		.img-container {
+			background-color: #00ffcc;
+			width: 250px;
+			height: 400px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transform-style: unset;
+			transition: .3s;
+			position: relative;
+			overflow: visible;
+		}
+
+		.img-container::after {
+			content: "Gaming";
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			transition: .30s;
+			font-family: arial;
+			font-size: 30px;
+			font-weight: bold;
+			color: rgba(255,255,255,.85);
+			transform: translate(200px) translateZ(0px);
+			opacity: 0
+		}
+
+		.img-container:hover::after {
+			transform: translate(0) translateZ(35px);
+			opacity: 1
+		}
+
+		.img-container::before {
+			content: "Keyboard";
+			position: absolute;
+			top: 20px;
+			left: 20px;
+			transition: .15s;
+			font-family: arial;
+			font-size: 30px;
+			font-weight: bold;
+			color: rgba(255,255,255,.85);
+			transform: translate(-200px) translateZ(0px);
+			opacity: 0
+		}
+
+		.img-container:hover::before {
+			transform: translate(0) translateZ(35px);
+			opacity: 1
+		}
+
+		.img-container:hover {
+			transform-style: preserve-3d;
+		}
+
+		img {
+			transform: translateZ(0px);
+			transition: .3s
+		}
+		.img-container:hover > img {
+			transform: translateZ(200px);	
+		}
+
+
+
+
+	</style>
+</head>
+<body>
+
+	<div class="img-container" data-tilt>
+		<img src="keyboard.png" width="300">
+	</div>
+
+	<script></script>
+
+	<script src="vanilla-tilt.js"></script>
+
+</body>
+</html>
